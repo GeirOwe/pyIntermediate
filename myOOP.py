@@ -18,12 +18,11 @@ def read_data():
 #start of program
 if __name__ == '__main__':
     os.system('clear')
-    print('----------------------------')
-    print()
+    print('----------------------------\n')
 
-    cellar = Cellar('VINSKAPET', 70)    # prepare the wine cellar
+    cellar = Cellar('VINSKAPET', 50)    # prepare the wine cellar, indicate capacity
     wineDF = read_data()                # get wines from the data base 
-    wineList = []                       # the list will hold all wine objects in data base
+    wineList = []                       # the list will hold all wine objects in the data base
     
     #create objects of all wines and add to the wine cellar
     for idx, row in wineDF.iterrows(): 
@@ -38,10 +37,10 @@ if __name__ == '__main__':
 
     # print info on first & last wine.
     # expect opus one & fontalloro to be printed
-    print(wineList[0].get_name(), ' koster ', wineList[0].get_price(), ',-')
-    print(wineList[-1].get_name(), ' koster ', wineList[-1].get_price(), ',-')
-    print('Snittpris på de ', cellar.get_no_of_bottles(),  ' flaskene med vin i skapet er ', cellar.avg_cost(), ',-')
-    print('Ledig kapasitet i ', cellar.get_name(), ' er ', cellar.remain_capacity())
-
-    #the end
+    print(wineList[0].get_name(), ' koster ', wineList[0].get_price(), ',-. Jeg har ', 
+            wineList[0].get_no_of_bottles(), 'flaske(r) i ', cellar.get_name(), ' av denne vinen')
+    print(wineList[-1].get_name(), ' koster ', wineList[-1].get_price(), ',-. Jeg har ', 
+            wineList[-1].get_no_of_bottles(), 'flaske(r) i ', cellar.get_name(), ' av denne vinen')
     print()
+    print('Snittpris på de ', cellar.get_no_of_bottles(),  ' flaskene i ', cellar.get_name(), ' er ', cellar.avg_cost(), ',-')
+    print('Ledig kapasitet i ', cellar.get_name(), ' er ', cellar.remain_capacity(), '\n')
