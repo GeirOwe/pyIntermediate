@@ -67,6 +67,7 @@ class Cellar():
     def avg_cost(self):
         cost = 0
         for wine in self.wineList:
-            cost += wine.get_price()
+            if wine.get_no_of_bottles() > 0:    # do not include wines that have been drunk and are no longer inCellar
+                cost += wine.get_price()
         return cost // len(self.wineList)
 #end class definition
