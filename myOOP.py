@@ -24,7 +24,7 @@ if __name__ == '__main__':
     cellar = Cellar('VINSKAPET', 70)    # prepare the wine cellar
     wineDF = read_data()                # get wines from the data base 
     wineList = []                       # the list will hold all wine objects in data base
-
+    
     #create objects of all wines and add to the wine cellar
     for idx, row in wineDF.iterrows(): 
         #create the wine object
@@ -44,6 +44,4 @@ if __name__ == '__main__':
     print('Ledig kapasitet i ', cellar.get_name(), ' er ', cellar.remain_capacity())
 
     #the end
-    print()
-    print('----------------------------')
     print()
