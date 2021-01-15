@@ -15,8 +15,8 @@ class Human:
         self.maps = maps
 
     # We can override the dir() method by overriding the __dir__() method in the class. 
-    def __dir__(self):
-        return list(filter(lambda x: not x.startswith('_'), object.__dir__(self)))
+    #def __dir__(self):
+    #    return list(filter(lambda x: not x.startswith('_'), object.__dir__(self)))
     
     # The __str__() method is executed when we want to print an object in a printable format. 
     def __str__(self):
@@ -28,11 +28,12 @@ os.system('clear')
 
 human = Human(1, 'Geir Owe', ['Sandestien', 'Sola'], {'Rogaland':2, 'Norge':3})
 print(human)
-human = Human(2, 'Ronja', ['Fyllingen', 'Bergen'], {'Hordaland':1, 'Norge':3}).__dict__
-print(human)
 
 # We can override the dir() method by overriding the __dir__() method in the class.
 print(dir(human))
+
+human = Human(2, 'Ronja', ['Fyllingen', 'Bergen'], {'Hordaland':1, 'Norge':3}).__dict__
+print(human)
 
 #print(dir(human))
 #output: 
