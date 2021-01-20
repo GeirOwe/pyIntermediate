@@ -29,6 +29,14 @@ vin = pd.read_csv('data/vinkjeller.csv', sep=';', encoding = 'utf8')
 #vin['privatscore'] = vin['privatscore'].fillna(0)
 #print(vin.head())
 #       subset some rows
-drikkNu = vin[vin['bottles'] > 0]
+drikkNu = vin[(vin['bottles'] > 0) & (vin['drinkafter'] <= 2021)]
 drikkNu = drikkNu.sort_values(['score', 'privatscore'], ascending=[False, False])
-print(drikkNu)
+print(drikkNu, '\n')
+
+#lag en liste
+vinListe = []
+for idx, row in drikkNu.iterrows():
+    vinListe.append(row['name'])
+
+#list comprehension
+[print(x) for x in vinListe]
