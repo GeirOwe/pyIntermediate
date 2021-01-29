@@ -9,7 +9,7 @@ from myOOP_classes import Wine
 
 # read the CSV file into a dataframe
 def read_data():
-    df = pd.read_csv('vinkjeller.csv', sep=';', encoding = 'utf8')
+    df = pd.read_csv('data/vinkjeller.csv', sep=';', encoding = 'utf8')
     #and replace 'nan' with zero or space
     df['privatscore'] = df['privatscore'].fillna(0)
     return df
