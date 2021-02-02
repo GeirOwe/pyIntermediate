@@ -3,7 +3,6 @@
 
 import os
 import pandas as pd
-import csv
 from myOOP_classes import Cellar 
 from myOOP_classes import Wine
 
