@@ -1,7 +1,5 @@
 #test loops
-
 import os
-
 
 #clear the console and start the programme
 def empty():
@@ -25,10 +23,15 @@ def list_comp(y):
 def do_main():    
     #no of iterations
     iter = 10
+    
+    #normal loop
     sq = normal_loop(iter)
     print('normal loop        -> ', sq)
+    
+    #list comprehension
     sqX = list_comp(iter)
     print('list comprehension -> ', sqX)
+    
     print('')
     return
 
@@ -36,4 +39,3 @@ def do_main():
 if __name__ == '__main__':
     empty()
     do_main()
-
