@@ -23,15 +23,12 @@ def list_comp(y):
 def do_main():    
     #no of iterations
     iter = 10
-    
     #normal loop
     sq = normal_loop(iter)
     print('normal loop        -> ', sq)
-    
     #list comprehension
     sqX = list_comp(iter)
     print('list comprehension -> ', sqX)
-    
     print('')
     return
 
