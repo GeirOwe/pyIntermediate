@@ -62,7 +62,16 @@ def create_car(brand, vintage, price, carObjList):
     carObjList.append(carObj)
     return carObjList
 
-def store_data(carObjList):
+def print_some_objects(carObjList):
+    #get / set some info on Car objects
+    carObjList[1].set_mileage('38000')
+    carObjList[0].set_mileage('75000')
+    print('pris ', carObjList[0].get_brand(), ': ', carObjList[0].get_price())
+    print('km ', carObjList[1].get_brand(), ': ', carObjList[1].get_mileage())
+    print()
+    return
+
+def write_to_csv(carObjList):
     filename = 'cars.csv'
     header = ['Merke', 'Årgang', 'Pris', 'Kmstand']
     #data = [['Alex', 62, 80], ['Brad', 45, 56], ['Joey', 85, 98]]
@@ -94,16 +103,13 @@ def do_objects():
     carObjList = create_car('i3', '2018', '300000', carObjList)
     
     #get / set some info on Car objects
-    carObjList[1].set_mileage('38000')
-    carObjList[0].set_mileage('75000')
-    print('pris ', carObjList[0].get_brand(), ': ', carObjList[0].get_price())
-    print('km ', carObjList[1].get_brand(), ': ', carObjList[1].get_mileage())
+    print_some_objects(carObjList)
 
     #store the data
-    store_data(carObjList)
+    write_to_csv(carObjList)
     return
 
-def read_cars_from_file():
+def read_from_csv():
     file = open("cars.csv")
     csvreader = csv.reader(file)
     header = next(csvreader)
@@ -113,19 +119,12 @@ def read_cars_from_file():
     for row in csvreader:
         carObjList = create_car(row[0],row[1], row[2], carObjList)
     file.close()
-    
-    #get / set some info on Car objects
-    carObjList[1].set_mileage('38000')
-    carObjList[0].set_mileage('75000')
-    print('pris ', carObjList[0].get_brand(), ': ', carObjList[0].get_price())
-    print('km ', carObjList[1].get_brand(), ': ', carObjList[1].get_mileage())
-    print()
-
-    return
+    return carObjList
 
 #let's start
 if __name__ == '__main__':
     empty()
     #do_loops()
     #do_objects()
-    read_cars_from_file()
+    carObjList = read_from_csv()
+    print_some_objects(carObjList)
