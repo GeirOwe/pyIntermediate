@@ -149,14 +149,14 @@ def plot_bubbles2(df):
         size_max=100,
         title="Lønn og arbeidserfaring etter arbeidsoppgaver",
         labels={
-            "work_field": "Hva jobber du mest med?",
+            "work_field": "Oppgaver",
             "experience_mean": "Gjennomsnittlig arbeidserfaring",
             "salary_median": "Medianlønn",
         },
     )
 
     fig.update_traces(
-        hovertemplate="Gjennomsnittlig arbeidserfaring: %{x:.1f} år <br>Medianlønn: %{y:,0f} kr"
+        hovertemplate="Snitt arbeidserfaring: %{x:.1f} år <br>Median lønn: %{y:,0f} kr"
     )
 
     fig.show()
@@ -177,11 +177,9 @@ def main_module():
     #print(df.work_situation.value_counts(),'\n')
     df = tidy_dataset(df)
     print('Høyeste lønn i datasett: ', df.salary.max(),'\n')
-    #print(df[df.salary == 2600000.0],'\n')
 
     #add aggregates to a 2nd dataset
     df2 = get_aggregates(df)
-    #print(df2.head(),'\n')
         
     #plot the second dataset - is shown in default browser
     print('plot kommer i default browser\n')
