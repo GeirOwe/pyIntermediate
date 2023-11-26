@@ -11,17 +11,17 @@ def clear_console():
 #a database in a form of a dict
 def create_dict():
     people = {
-        'Alice': {
+        'alice': {
             'phone': '2341',
-            'addr': 'Foo drive 23'
+            'addr': 'foo drive 23'
         },
-         'Beth': {
+         'beth': {
             'phone': '9102',
-            'addr': 'Bar street 42'
+            'addr': 'bar street 42'
         },
-         'Cecil': {
+         'cecil': {
             'phone': '3158',
-            'addr': 'Baz avenue 90'
+            'addr': 'baz avenue 90'
         }
     }
     return people
@@ -37,7 +37,7 @@ def do_some_dict():
     #a database in a form of a dict
     people = create_dict()
     labels = create_labels()
-    name = input('name: ')
+    name = input('name: ').lower()
     request = input('phone number(p) or adress(a)? ')
     #use the input to find the correct data
     key = request
@@ -49,8 +49,10 @@ def do_some_dict():
     label = labels.get(key, key)
     result = person.get(key, 'not available')
     print("{}'s {} is {}.".format(name, label, result))
-    return
 
+    for k, v in people.items():
+        print(k, 'corresponds to', v)
+    return
 
 def do_fibonacci():
     #generate the fibonacci sequence with y numbers
@@ -75,8 +77,8 @@ def do_fibonacci():
 #start the programme - useful icons {} []
 def main_module():
     clear_console()
-    #do_some_dict()
-    do_fibonacci()
+    do_some_dict()
+    #do_fibonacci()
     print('\n')
 #end main programme
 
